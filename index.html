@@ -3,47 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crypto Miner Dashboard</title>
+  <title>Crypto Miner App</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Crypto Miner</h1>
+    <div class="container nav-container">
+      <h1>CryptoMiner</h1>
       <nav>
         <a href="#">Beranda</a>
         <a href="#">Fitur</a>
         <a href="#">Tentang</a>
         <a href="#" id="loginBtn">Masuk</a>
+        <a href="#" id="registerBtn" class="btn-outline">Daftar</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="carousel">
-      <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=026" class="slide active" />
-      <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=026" class="slide" />
-      <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.png?v=026" class="slide" />
+      <img src="https://images.unsplash.com/photo-1611971263499-5ca3c64f1214?auto=format&fit=crop&w=1600&q=80" class="slide active" />
+      <img src="https://images.unsplash.com/photo-1612202237395-d15c38f8e26b?auto=format&fit=crop&w=1600&q=80" class="slide" />
+      <img src="https://images.unsplash.com/photo-1629973602647-6cb81cc7c1fa?auto=format&fit=crop&w=1600&q=80" class="slide" />
     </div>
     <div class="hero-content">
-      <h2>Mulai Menambang Crypto dengan Mudah</h2>
-      <p>Platform penambangan crypto modern dan aman</p>
-      <button>Mulai Sekarang</button>
+      <h2>Penambangan Crypto Modern</h2>
+      <p>Amankan profit Anda dengan mining berbasis cloud</p>
+      <button>Mulai Menambang</button>
     </div>
   </section>
 
   <main class="container">
-    <section id="dashboard">
-      <h3>Dashboard Penambangan</h3>
-      <p>Statistik penambangan Anda akan muncul di sini.</p>
+    <section id="dashboard" class="card">
+      <h3>Statistik Penambangan</h3>
+      <p>Hasil mining dan performa akan ditampilkan di sini.</p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Crypto Miner Clone</p>
+    <p>&copy; 2025 CryptoMiner. Dibuat dengan ❤️ oleh TraderSharing.</p>
   </footer>
 
-  <!-- Login Modal -->
+  <!-- Modal Login -->
   <div class="modal" id="loginModal">
     <div class="modal-content">
       <span class="close" id="closeModal">&times;</span>
