@@ -10,10 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Modal Login
   const loginBtn = document.getElementById('loginBtn');
+  const registerBtn = document.getElementById('registerBtn');
   const loginModal = document.getElementById('loginModal');
   const closeModal = document.getElementById('closeModal');
 
   loginBtn.onclick = () => loginModal.style.display = 'block';
+  registerBtn.onclick = () => loginModal.style.display = 'block'; // sementara register sama seperti login
+
   closeModal.onclick = () => loginModal.style.display = 'none';
 
   window.onclick = (e) => {
