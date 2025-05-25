@@ -1,0 +1,88 @@
+
+body {
+  background: #111;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 2em;
+}
+
+.paket-section {
+  margin-top: 3em;
+  text-align: center;
+}
+
+.paket-section h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #ffa500;
+}
+
+.paket-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+
+.paket-card {
+  background: linear-gradient(145deg, #1b1b1b, #2a2a2a);
+  border-radius: 12px;
+  padding: 1.5em;
+  width: 300px;
+  box-shadow: 0 10px 20px rgba(255,165,0,0.2);
+  transform: perspective(1000px) rotateX(2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.paket-card:hover {
+  transform: scale(1.03) perspective(1000px) rotateX(0deg);
+  box-shadow: 0 20px 30px rgba(255,165,0,0.3);
+}
+
+.paket-card h3 {
+  color: #ffa500;
+  margin-bottom: 0.5em;
+}
+
+.paket-card p {
+  margin: 0.3em 0;
+}
+
+.paket-card button {
+  margin-top: 1em;
+  padding: 0.7em 1.5em;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffa500;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.paket-card button:hover {
+  background-color: #ff8c00;
+}
+
+@media (max-width: 1024px) {
+  .paket-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .paket-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .paket-card {
+    width: 90%;
+  }
+}
