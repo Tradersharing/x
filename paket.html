@@ -52,6 +52,7 @@
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
+      display: none;
     }
     .paket-saya h3 {
       margin-bottom: 10px;
@@ -98,39 +99,58 @@
     </div>
   </div>
 
-  <div class="paket-saya">
+  <div class="paket-saya" id="paketSaya">
     <h3>PAKET SAYA</h3>
-    <p>Masa Aktif: <span id="masa">7</span> hari</p>
-    <p>Waktu Berjalan: <span id="berjalan">0</span> menit</p>
+    <p>Tarik keuntungan dalam</p>
+    <p id="countdown">Loading...</p>
     <p>Keuntungan Saat Ini: <span id="untung">Rp0</span></p>
     <button id="withdrawBtn" disabled>Withdraw Keuntungan</button>
   </div>
 
   <script>
-    let totalHari = 7;
-    let totalMenit = totalHari * 24 * 60;
-    let harga = 100000;
-    let profit = 3;
-    let keuntunganTotal = harga * (profit / 100);
-    let menitKe = 0;
+    // Contoh aktifkan setelah checkout sukses
+    const aktifkanPaketSaya = true;
 
-    const berjalanEl = document.getElementById("berjalan");
-    const untungEl = document.getElementById("untung");
-    const btnWithdraw = document.getElementById("withdrawBtn");
+    if (aktifkanPaketSaya) {
+      document.getElementById("paketSaya").style.display = "block";
 
-    function updateWaktu() {
-      if (menitKe < totalMenit) {
-        menitKe++;
-        berjalanEl.innerText = menitKe;
-        let current = (keuntunganTotal * (menitKe / totalMenit));
-        untungEl.innerText = "Rp" + Math.round(current).toLocaleString();
-      } else {
-        btnWithdraw.disabled = false;
-        btnWithdraw.innerText = "Withdraw Keuntungan";
+      const durasiHari = 7;
+      const totalMenit = durasiHari * 24 * 60;
+      const harga = 100000;
+      const profit = 3;
+      const keuntunganTotal = harga * (profit / 100);
+
+      const untungEl = document.getElementById("untung");
+      const countdownEl = document.getElementById("countdown");
+      const btnWithdraw = document.getElementById("withdrawBtn");
+
+      const startTime = new Date();
+      const endTime = new Date(startTime.getTime() + durasiHari * 24 * 60 * 60 * 1000);
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = endTime - now;
+
+        if (diff > 0) {
+          const totalSec = Math.floor(diff / 1000);
+          const days = Math.floor(totalSec / (3600 * 24));
+          const hours = Math.floor((totalSec % (3600 * 24)) / 3600);
+          const minutes = Math.floor((totalSec % 3600) / 60);
+
+          countdownEl.innerText = `${days} Hari ${hours} Jam ${minutes} Menit`;
+
+          const progress = (now - startTime) / (endTime - startTime);
+          const current = keuntunganTotal * progress;
+          untungEl.innerText = "Rp" + Math.round(current).toLocaleString();
+        } else {
+          countdownEl.innerText = "Waktu selesai";
+          untungEl.innerText = "Rp" + Math.round(keuntunganTotal).toLocaleString();
+          btnWithdraw.disabled = false;
+        }
       }
-    }
 
-    setInterval(updateWaktu, 1000); // 1 detik = simulasi 1 menit
+      setInterval(updateCountdown, 1000);
+    }
   </script>
 </body>
 </html>
