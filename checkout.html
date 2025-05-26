@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Checkout Paket</h2>
+    <div id="checkout-box" class="paket-card" style="margin:auto;">
+      <h3 id="paket-judul">Paket</h3>
+      <p id="paket-harga">Harga:</p>
+      <p id="paket-masa">Masa Aktif:</p>
+      <p id="paket-profit">Keuntungan:</p>
+      <p id="paket-total">Total Keuntungan:</p>
+      <a href="pay.html"><button>Lanjut Bayar</button></a>
+    </div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const hari = params.get("hari");
+    const harga = parseInt(params.get("harga"));
+    const profit = parseFloat(params.get("profit"));
+
+    if (hari && harga && profit) {
+      document.getElementById("paket-judul").innerText = `Paket ${hari} Hari`;
+      document.getElementById("paket-harga").innerText = `Harga: Rp${harga.toLocaleString()}`;
+      document.getElementById("paket-masa").innerText = `Masa Aktif: ${hari} Hari`;
+      document.getElementById("paket-profit").innerText = `Keuntungan: ${profit}%`;
+
+      const totalKeuntungan = harga * (profit / 100);
+      document.getElementById("paket-total").innerText = `Total Keuntungan: Rp${totalKeuntungan.toLocaleString()}`;
+    }
+  </script>
+</body>
+</html>

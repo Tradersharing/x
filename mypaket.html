@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paket Saya</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Paket Aktif Saya</h2>
+    <div class="paket-card">
+      <h3>Paket 7 Hari</h3>
+      <p>Masa Aktif: <span id="masa">7</span> hari</p>
+      <p>Waktu Berjalan: <span id="berjalan">0</span> menit</p>
+      <p>Keuntungan Saat Ini: <span id="untung">Rp0</span></p>
+      <button id="withdrawBtn" disabled>Withdraw Keuntungan</button>
+    </div>
+  </div>
+  <script>
+    let totalHari = 7;
+    let totalMenit = totalHari * 24 * 60;
+    let harga = 100000;
+    let profit = 3;
+    let keuntunganTotal = harga * (profit / 100);
+    let menitKe = 0;
+
+    const berjalanEl = document.getElementById("berjalan");
+    const untungEl = document.getElementById("untung");
+    const btnWithdraw = document.getElementById("withdrawBtn");
+
+    function updateWaktu() {
+      if (menitKe < totalMenit) {
+        menitKe++;
+        berjalanEl.innerText = menitKe;
+        let current = (keuntunganTotal * (menitKe / totalMenit));
+        untungEl.innerText = "Rp" + Math.round(current).toLocaleString();
+      } else {
+        btnWithdraw.disabled = false;
+        btnWithdraw.innerText = "Withdraw Keuntungan";
+      }
+    }
+
+    setInterval(updateWaktu, 1000); // 1 detik = simulasi 1 menit
+  </script>
+</body>
+</html>

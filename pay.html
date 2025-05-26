@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pembayaran</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Halaman Pembayaran</h2>
+    <p>Silakan lakukan pembayaran sesuai instruksi di bawah ini.</p>
+    <p><strong>Metode:</strong> Transfer Crypto / E-Wallet</p>
+    <p><strong>Alamat:</strong> 1A2b3C4D5E6F7G8H9I0J</p>
+    <p><strong>Total Bayar:</strong> <span id="total-bayar">Rp -</span></p>
+    <a href="mypaket.html"><button>Saya Sudah Bayar</button></a>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const harga = parseInt(params.get("harga"));
+    if (harga) {
+      document.getElementById("total-bayar").innerText = "Rp" + harga.toLocaleString();
+    }
+  </script>
+</body>
+</html>
