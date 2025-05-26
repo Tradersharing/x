@@ -3,50 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pilih Paket Mining</title>
+  <title>Paket Mining</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    .paket-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .paket {
+      background: #1a1a1a;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      text-align: center;
+      transform: perspective(1000px) rotateY(0deg);
+      transition: transform 0.3s;
+    }
+    .paket:hover {
+      transform: perspective(1000px) rotateY(2deg);
+    }
+    .paket button {
+      margin-top: 15px;
+      background: #ffa500;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .paket-saya {
+      margin-top: 40px;
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .paket-saya h3 {
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-  <section class="paket-section">
-    <h2 style="text-align:center;">Pilih Paket Mining</h2>
-    <div class="paket-grid">
-      <div class="paket-card" data-paket="7" data-harga="100000" data-profit="3">
-        <h3>Paket 7 Hari</h3>
-        <p>Harga: Rp100.000</p>
-        <p>Masa Aktif: 7 Hari</p>
-        <p>Keuntungan: 3%</p>
-        <button onclick="pilihPaket(this)">Pilih Paket</button>
-      </div>
-      <div class="paket-card" data-paket="30" data-harga="250000" data-profit="5">
-        <h3>Paket 30 Hari</h3>
-        <p>Harga: Rp250.000</p>
-        <p>Masa Aktif: 30 Hari</p>
-        <p>Keuntungan: 5%</p>
-        <button onclick="pilihPaket(this)">Pilih Paket</button>
-      </div>
-      <div class="paket-card" data-paket="90" data-harga="500000" data-profit="7">
-        <h3>Paket 90 Hari</h3>
-        <p>Harga: Rp500.000</p>
-        <p>Masa Aktif: 90 Hari</p>
-        <p>Keuntungan: 7%</p>
-        <button onclick="pilihPaket(this)">Pilih Paket</button>
-      </div>
-      <div class="paket-card" data-paket="180" data-harga="800000" data-profit="9">
-        <h3>Paket 180 Hari</h3>
-        <p>Harga: Rp800.000</p>
-        <p>Masa Aktif: 180 Hari</p>
-        <p>Keuntungan: 9%</p>
-        <button onclick="pilihPaket(this)">Pilih Paket</button>
-      </div>
-      <div class="paket-card" data-paket="360" data-harga="1200000" data-profit="11">
-        <h3>Paket 360 Hari</h3>
-        <p>Harga: Rp1.200.000</p>
-        <p>Masa Aktif: 360 Hari</p>
-        <p>Keuntungan: 11%</p>
-        <button onclick="pilihPaket(this)">Pilih Paket</button>
-      </div>
+  <h2>Pilih Paket Mining</h2>
+  <div class="paket-container">
+    <div class="paket">
+      <h3>Paket 7 Hari</h3>
+      <p>Harga: Rp 100.000</p>
+      <p>Keuntungan: 3%</p>
+      <p>Masa Aktif: 7 Hari</p>
+      <a href="checkout.html?paket=7&harga=100000&profit=3"><button>Daftar Paket</button></a>
     </div>
-  </section>
-  <script src="app.js"></script>
+    <div class="paket">
+      <h3>Paket 30 Hari</h3>
+      <p>Harga: Rp 250.000</p>
+      <p>Keuntungan: 5%</p>
+      <p>Masa Aktif: 30 Hari</p>
+      <a href="checkout.html?paket=30&harga=250000&profit=5"><button>Daftar Paket</button></a>
+    </div>
+    <div class="paket">
+      <h3>Paket 90 Hari</h3>
+      <p>Harga: Rp 500.000</p>
+      <p>Keuntungan: 7%</p>
+      <p>Masa Aktif: 90 Hari</p>
+      <a href="checkout.html?paket=90&harga=500000&profit=7"><button>Daftar Paket</button></a>
+    </div>
+    <div class="paket">
+      <h3>Paket 180 Hari</h3>
+      <p>Harga: Rp 1.000.000</p>
+      <p>Keuntungan: 9%</p>
+      <p>Masa Aktif: 180 Hari</p>
+      <a href="checkout.html?paket=180&harga=1000000&profit=9"><button>Daftar Paket</button></a>
+    </div>
+    <div class="paket">
+      <h3>Paket 360 Hari</h3>
+      <p>Harga: Rp 2.000.000</p>
+      <p>Keuntungan: 11%</p>
+      <p>Masa Aktif: 360 Hari</p>
+      <a href="checkout.html?paket=360&harga=2000000&profit=11"><button>Daftar Paket</button></a>
+    </div>
+  </div>
+
+  <div class="paket-saya">
+    <h3>PAKET SAYA</h3>
+    <p>Masa Aktif: <span id="masa">7</span> hari</p>
+    <p>Waktu Berjalan: <span id="berjalan">0</span> menit</p>
+    <p>Keuntungan Saat Ini: <span id="untung">Rp0</span></p>
+    <button id="withdrawBtn" disabled>Withdraw Keuntungan</button>
+  </div>
+
+  <script>
+    let totalHari = 7;
+    let totalMenit = totalHari * 24 * 60;
+    let harga = 100000;
+    let profit = 3;
+    let keuntunganTotal = harga * (profit / 100);
+    let menitKe = 0;
+
+    const berjalanEl = document.getElementById("berjalan");
+    const untungEl = document.getElementById("untung");
+    const btnWithdraw = document.getElementById("withdrawBtn");
+
+    function updateWaktu() {
+      if (menitKe < totalMenit) {
+        menitKe++;
+        berjalanEl.innerText = menitKe;
+        let current = (keuntunganTotal * (menitKe / totalMenit));
+        untungEl.innerText = "Rp" + Math.round(current).toLocaleString();
+      } else {
+        btnWithdraw.disabled = false;
+        btnWithdraw.innerText = "Withdraw Keuntungan";
+      }
+    }
+
+    setInterval(updateWaktu, 1000); // 1 detik = simulasi 1 menit
+  </script>
 </body>
 </html>
